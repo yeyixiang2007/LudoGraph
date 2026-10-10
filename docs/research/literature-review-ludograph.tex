@@ -1,0 +1,103 @@
+% !TEX program = lualatex
+% 文献综述 —— 主文档
+% 编译：latexmk -lualatex -interaction=nonstopmode -halt-on-error literature-review-ludograph.tex
+% 说明：本机未提供 xelatex/ctex/xeCJK，故使用 LuaLaTeX + luatexja + fontspec。
+%       CJK 字形来自系统唯一可用中文字体 Droid Sans Fallback。
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{a4paper, top=2.7cm, bottom=2.5cm, left=2.8cm, right=2.5cm, headheight=15pt}
+
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}[Scale=0.82]
+
+% 中文使用 Noto Serif CJK SC（宋体风格）；英文使用 Times New Roman 的 TeX Gyre Termes 兼容字形。
+\usepackage[no-math]{luatexja}
+\usepackage{luatexja-fontspec}
+\setmainjfont[Path=/usr/share/fonts/opentype/noto/,Extension=.ttc,
+  UprightFont=NotoSerifCJK-Regular,
+  BoldFont=NotoSerifCJK-Bold,
+  ItalicFont=NotoSerifCJK-Regular,
+  BoldItalicFont=NotoSerifCJK-Bold]{NotoSerifCJK}
+\setsansjfont[Path=/usr/share/fonts/opentype/noto/,Extension=.ttc,
+  UprightFont=NotoSerifCJK-Regular,
+  BoldFont=NotoSerifCJK-Bold,
+  ItalicFont=NotoSerifCJK-Regular,
+  BoldItalicFont=NotoSerifCJK-Bold]{NotoSerifCJK}
+
+\usepackage{setspace}
+\setstretch{1.5}
+
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{1F5A75}
+\definecolor{accentlight}{HTML}{EAF2F5}
+\definecolor{rulegray}{HTML}{B8C4C9}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent,pdftitle={LudoGraph 文献综述：面向游戏规则的可验证知识图谱},pdfauthor={LUDO-9},pdfsubject={Literature Review}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{caption}
+\usepackage{needspace}
+\setlist[itemize]{topsep=4pt,itemsep=2pt,parsep=0pt,leftmargin=2em}
+\setlist[enumerate]{topsep=4pt,itemsep=2pt,parsep=0pt,leftmargin=2em}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{3pt}
+\renewcommand{\arraystretch}{1.22}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\titleformat{\section}[block]{\needspace{4\baselineskip}\Large\bfseries\color{accent}}{\thesection}{0.75em}{}[\vspace{2pt}\color{rulegray}\titlerule]
+\titlespacing*{\section}{0pt}{2.0em}{0.9em}
+\titleformat{\subsection}[block]{\needspace{3\baselineskip}\large\bfseries\color{accent}}{\thesubsection}{0.65em}{}
+\titlespacing*{\subsection}{0pt}{1.3em}{0.45em}
+\titleformat{\subsubsection}[block]{\needspace{2\baselineskip}\normalsize\bfseries\color{black!78}}{\thesubsubsection}{0.55em}{}
+\titlespacing*{\subsubsection}{0pt}{0.9em}{0.3em}
+\captionsetup{font=small,labelfont=bf,labelsep=period}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{accent}LudoGraph 文献综述}
+\fancyhead[R]{\small\color{accent}\thepage}
+\fancyfoot[C]{\footnotesize\color{black!55}Literature Review}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{xurl}
+
+\title{\bfseries LudoGraph 文献综述\\[0.3em]
+  \large 面向游戏规则的可验证知识图谱}
+\author{LudoGraph 研究团队}
+\date{2026年10月10日}
+
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    \vspace*{0.22\textheight}
+    {\color{accent}\rule{0.72\textwidth}{1.2pt}\par}
+    \vspace{1.2cm}
+    {\Huge\bfseries\color{accent}\@title\par}
+    \vspace{1.8cm}
+    {\Large\@author\par}
+    \vspace{0.7cm}
+    {\large\@date\par}
+    \vfill
+    {\color{accent}\rule{0.72\textwidth}{0.6pt}\par}
+    \vspace{1.2cm}
+  \end{titlepage}
+}
+\makeatother
+
+\begin{document}
+
+\input{_body.tex}
+
+\end{document}

@@ -1,0 +1,13 @@
+# LaTeX 编译中间产物（不纳入版本控制）
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.bbl
+*.blg
+
+# Markdown -> LaTeX 生成的正文片段（由 _md2tex.py 从 .md 再生）
+_body.tex
