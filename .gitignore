@@ -4,3 +4,9 @@ __pycache__/
 venv/
 .env
 out/
+
+# Local worktrees and tooling caches
+worktrees/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
